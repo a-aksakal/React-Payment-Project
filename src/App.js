@@ -5,6 +5,7 @@ import { LoginProvider } from "./store/LoginContext";
 import ProductsPage from "./pages/products/ProductsPage";
 import { CartProvider } from "./store/CartContext";
 import PaymentPage from "./pages/payment/PaymentPage";
+import ResultPage from "./pages/result/ResultPage";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
               <Route path="/" element={<LoginPage />} />
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/payment" element={<PaymentPage />} />
+              <Route path="/result" element={<ResultPage />} />
             </Routes>
           </div>
         </CartProvider>
