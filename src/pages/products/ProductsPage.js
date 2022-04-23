@@ -11,6 +11,7 @@ function ProductsPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setCart([]);
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -18,14 +19,8 @@ function ProductsPage() {
     fetch("https://fakestoreapi.com/products?limit=6")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-    setTimeout(() => {
-      cart.forEach((item) => {
-        var productAtCart = document.getElementById(`box${item.id}`).style;
-        productAtCart.borderStyle = "solid";
-        productAtCart.transform = "scale(1.05)";
-      }, 500);
-    });
   }, []);
+
   const ChangeColor = (id) => {
     var div = document.getElementById(`box${id}`).style;
 

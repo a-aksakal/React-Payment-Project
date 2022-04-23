@@ -11,7 +11,6 @@ function PaymentPage() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    console.log(cart);
     setTimeout(() => {
       setLoading(false);
     }, 2000);

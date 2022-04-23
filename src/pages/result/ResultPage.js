@@ -35,7 +35,7 @@ function ResultPage() {
       message: "Teşekkürler",
       description: `${counter} Saniye Sonra AnaSayfa'ya yönlendirileceksiniz...`,
       placement,
-      duration: 10,
+      duration: 13,
     });
     setTimeout(() => {
       notification.success({
