@@ -1,15 +1,17 @@
 import { Button } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SpinnerRoundFilled } from "spinners-react";
 import Header from "../../component/Header";
 import "./PaymentPage.css";
-
+import CartContext from "../../store/CartContext";
 function PaymentPage() {
   const navigate = useNavigate();
+  const { cart, total } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
+    console.log(cart);
     setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -90,26 +92,18 @@ function PaymentPage() {
                 <span>Sepetteki Ürünler</span>
               </div>
               <div className="item-content">
-                <div className="item-group">
-                  <span>Ürün Adı</span>
-                  <span className="item-group-price">200TL</span>
-                </div>
-                <div className="item-group">
-                  <span>Ürün Adı</span>
-                  <span className="item-group-price">200TL</span>
-                </div>
-                <div className="item-group">
-                  <span>Ürün Adı</span>
-                  <span className="item-group-price">200TL</span>
-                </div>
-                <div className="item-group">
-                  <span>Ürün Adı</span>
-                  <span className="item-group-price">200TL</span>
-                </div>
+                {cart.map((item) => (
+                  <div className="item-group">
+                    <span>{item.title.substring(0, 17)}</span>
+                    <span className="item-group-price">
+                      {item.price.toFixed(0)}₺
+                    </span>
+                  </div>
+                ))}
               </div>
               <div className="item-total">
                 <span>Toplam:</span>
-                <span className="item-total-price">200TL</span>
+                <span className="item-total-price">{total.toFixed(0)}₺</span>
               </div>
               <div className="item-button">
                 <Button type="primary" onClick={() => navigate("/result")}>
