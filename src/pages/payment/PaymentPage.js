@@ -9,6 +9,7 @@ function PaymentPage() {
   const navigate = useNavigate();
   const { cart, total } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -92,9 +93,11 @@ function PaymentPage() {
               </div>
               <div className="item-content">
                 {cart.map((item) => (
-                  <div className="item-group">
-                    <span>{item.title.substring(0, 17)}</span>
-                    <span className="item-group-price">
+                  <div key={`box${item.id}`} className="item-group">
+                    <span key={`spn1${item.id}`}>
+                      {item.title.substring(0, 17)}
+                    </span>
+                    <span key={`spn2${item.id}`} className="item-group-price">
                       {item.price.toFixed(0)}₺
                     </span>
                   </div>

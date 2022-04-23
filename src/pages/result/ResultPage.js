@@ -40,6 +40,7 @@ function ResultPage() {
     setTimeout(() => {
       notification.success({
         key,
+        message: "Teşekkürler",
         description: `${counter} Saniye Sonra AnaSayfa'ya yönlendirileceksiniz...`,
         placement,
       });
